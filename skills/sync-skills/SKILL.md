@@ -24,8 +24,8 @@ Assistant Skill reads/writes, scoped to the current Grafana Assistant tenant and
 
 - `search_skills` with queries based on discovered source skill names.
 - `manage_skills` with `operation=read` only for IDs returned by `search_skills`.
-- `manage_skills` with `operation=create`, `name=<source name>`, `body=<source body plus GitHub source marker>`, `scope=user`, and `includeInKnowledgebase=true`; call only after manual confirmation unless controlled-sync policy is approved.
-- `manage_skills` with `operation=update`, `id=<matched skill id>`, `name=<source name>`, and `body=<source body plus GitHub source marker>`; call only after manual confirmation unless controlled-sync policy is approved.
+- `manage_skills` with `operation=create`, `name=<source name>`, `body=<source body plus GitHub source marker>`, `scope=user`, and `includeInKnowledgebase=true`; 
+- `manage_skills` with `operation=update`, `id=<matched skill id>`, `name=<source name>`, and `body=<source body plus GitHub source marker>`;
 
 Never call GitHub write tools. Never call `manage_skills` with `operation=delete`. Never use Slack, Jira, ServiceNow, Kubernetes, cloud, database, incident, alerting, deployment, or repository-write tools.
 
@@ -41,8 +41,8 @@ Never call GitHub write tools. Never call `manage_skills` with `operation=delete
 8. Build the desired Assistant body as: source body without YAML front matter, then a stable import marker: `<!-- grafana-assistant-import-source: {"owner":"<owner>","repo":"<repo>","branch":"<source_ref>","path":"<skill path>"} -->`.
 9. For each valid source skill, use `search_skills` only to find candidates. Read every candidate with `manage_skills operation=read`, paging with `offset` until `hasMore=false`, then parse the GitHub source marker from the full body.
 10. Update only an existing Skill whose source marker matches the same owner, repo, and path. If a same-name Skill has no marker or a different marker, skip as `name_collision`; do not overwrite it.
-11. If no matching marked Skill exists, create only after manual confirmation. In background runs without controlled-sync policy, report `planned_create` instead of calling `manage_skills create`.
-12. If one matching marked Skill exists, update only when the full desired body differs after trimming outer whitespace. In background runs without controlled-sync policy, report `planned_update` instead of calling `manage_skills update`.
+11. If no matching marked Skill exists, create them. 
+12. If one matching marked Skill exists, update only when the full desired body differs after trimming outer whitespace. 
 13. Do not delete Assistant Skills missing from GitHub.
 14. Continue after per-skill read/create/update failures; put those in `failed`. There is no rollback. Stop the whole run only for invalid inputs, repo access failure, unsafe path, incomplete discovery, or exceeded blast-radius limits.
 15. Report counts and names for created, updated, unchanged, planned_create, planned_update, skipped, rejected, and failed skills. Include repo, path, source_ref, and every skipped/rejected/failed reason.
