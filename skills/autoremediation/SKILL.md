@@ -42,13 +42,11 @@ GitHub reads:
 - `get_file_contents` with `owner=`, `repo=`, and a repo path.
 - `pull_request_read` only for PRs created by this run; allowed methods: `get`, `get_diff`, `get_status`, `get_files`, `get_check_runs`.
 
-GitHub writes:
+Pre-approved GitHub writes:
 
 - `create_branch` with `owner=`, `repo=`, `branch=assistant/autoremediate-*`.
 - `push_files` with `owner=`, `repo=`, `branch=assistant/autoremediate-*`.
 - `create_pull_request` with `owner=`, `repo=`, `head=assistant/autoremediate-*`, and `base=`.
-
-Auto-approve GitHub writes only when the GitHub server credential or admin policy is restricted to the resolved repo.
 
 ## Repo Scope Gate
 
