@@ -7,7 +7,7 @@ description: Draft concise incident updates from symptoms, current impact, evide
 
 Use when asked to turn incident notes into a clear stakeholder update.
 
-Collect: current impact, affected users or systems, confirmed evidence, suspected cause, mitigation in progress, owner, and next update time.
+Collect current impact, affected users or systems, confirmed evidence, suspected cause, mitigation in progress, owner, and next update time.
 
 Write:
 
