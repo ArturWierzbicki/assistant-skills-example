@@ -141,7 +141,7 @@ Use source links from the investigation or repository. Do not cite local files.
 
 ## Run Output
 
-Write back on slack via MCP or if slack is not available - return a list of created PRs
+ return a list of created PRs
 
 ## Hard Stops
 
