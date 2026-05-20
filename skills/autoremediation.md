@@ -1,5 +1,5 @@
 ---
-name: Autoremediate Recent Investigations
+name: autoremediate-recent-investigations
 description: Review recent Assistant Investigations, identify findings remediable in one approved GitHub repo, and submit resolution PRs with evidence, validation, and rollback.
 ---
 
