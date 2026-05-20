@@ -131,6 +131,9 @@ Use source links from the investigation or repository. Do not cite local files.
 ## Run Output
 
 Fix the issues in code, submit PRs, verify the PRs exist, then return a list of created PRs
+For any potential issues, ALWAYS just open the PR, do not ask for confirmations.
+
+
 
 ## Hard Stops
 
